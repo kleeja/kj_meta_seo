@@ -309,11 +309,11 @@ if (!function_exists('kj_meta_seo_configs')) {
     {
         global $config, $file_info;
 
-        if ($page == 'download' && empty($config['kj_meta_seo_enable_download_auto_meta'])) {
+        if ($page === 'download' && empty($config['kj_meta_seo_enable_download_auto_meta'])) {
             return '';
         }
 
-        if ($page == 'any' && empty($config['kj_meta_seo_enable_auto_meta'])) {
+        if ($page === 'any' && empty($config['kj_meta_seo_enable_auto_meta'])) {
             return '';
         }
 
@@ -503,9 +503,9 @@ if (!function_exists('kj_meta_seo_configs')) {
         $prefix = 'KJ_META_SEO_HELP_' . $name;
         $section = ['type' => $type, 'title' => $words[$prefix . '_TITLE'] ?? '', 'items' => []];
 
-        for ($n = 1; isset($words[$prefix . ($type == 'faq' ? '_Q_' : '_') . $n]); $n++) {
+        for ($n = 1; isset($words[$prefix . ($type === 'faq' ? '_Q_' : '_') . $n]); $n++) {
             $section['items'][] =
-                $type == 'faq'
+                $type === 'faq'
                     ? ['q' => $words[$prefix . '_Q_' . $n], 'a' => $words[$prefix . '_A_' . $n] ?? '']
                     : $words[$prefix . '_' . $n];
         }
